@@ -1,0 +1,44 @@
+<?php
+$this->form->setAction( $this->url() );
+echo $this->form;
+
+/* NOT WORK CORRECTLY
+<form method="post" action="/todo/create">
+	<?php print( $this->form->csrf ); ?>
+	<div class="form-group row">
+		<label for="comment" class="col-4 col-form-label">Todo comment</label> 
+		<div class="col-8">
+		<textarea id="comment" name="comment" cols="40" rows="5" class="form-control" required="required"></textarea>
+		</div>
+	</div> 
+
+	<div class="form-group row">
+		<?php print( $this->form->captcha ); ?>
+	</div>
+
+
+	<div class="form-group row">
+		<div class="offset-4 col-8">
+		<button name="submit" type="submit" class="btn btn-primary">Submit</button>
+		</div>
+	</div>
+</form>
+*/
+
+/*
+<form enctype="application/x-www-form-urlencoded" method="post" action="/todo/create"><dl class="zend_form">
+<dt id="comment-label"><label for="comment" class="required">Please Comment:</label></dt>
+<dd id="comment-element">
+<textarea name="comment" id="comment" rows="24" cols="80"></textarea></dd>
+<dt id="captcha-input-label"><label for="captcha-input" class="required">Please enter the 5 letters displayed below:</label></dt>
+<dd id="captcha-element">
+
+
+<input type="hidden" name="captcha[id]" value="70f79ff49365d63d6bee4bc5a021907e" id="captcha-id">
+<input type="text" name="captcha[input]" id="captcha-input" value=""></dd>
+<dt id="submit-label">&nbsp;</dt><dd id="submit-element">
+<input type="submit" name="submit" id="submit" value="Save"></dd>
+<dt id="csrf-label">&nbsp;</dt>
+<dd id="csrf-element">
+<input type="hidden" name="csrf" value="dbcd65e85a231240f8829d7b0d77e19e" id="csrf"></dd></dl></form>
+*/

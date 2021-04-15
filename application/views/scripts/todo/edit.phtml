@@ -1,0 +1,25 @@
+<?php
+$this->form
+    ->setAction( $this->url() );
+
+echo $this->form;
+
+/*
+// test other method
+<form action="<?php print $this->url(); ?>" id="<?php print $this->form->getId() ?>" class="form" method="<?php print $this->form->getMethod() ?>" enctype="application/x-www-form-urlencoded">
+    <div class="form-group row">
+        <?php echo $this->formLabel($this->form->title->getName(),
+                                    $this->form->title->getLabel()) ?>
+        <div class="col-8">
+            <?php echo $this->{$this->form->title->helper}(
+                            $this->form->title->getName(),
+                            $this->form->title->getValue(),
+                            $this->form->title->getAttribs()
+            ) ?>
+        </div>
+
+        <?php echo $this->formErrors($this->form->title->getMessages()) ?>
+        <div class="hint"><?php echo $this->form->title->getDescription() ?></div>
+    </div>
+</form>
+*/

@@ -1,0 +1,48 @@
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1>Todo's list</h1>
+      <p class="lead text-muted">Just a long text !</p>
+      <p>
+        <a href="<?php echo $this->url( array('controller'=>'todo', 'action' => 'create'), 'default', true ) ?>" class="btn btn-primary my-2">Create</a>
+        <a href="#" class="btn btn-secondary my-2">Export</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="todo py-5 bg-light">
+    <div class="container">
+
+      <div class="todo-list row">
+        <?php foreach ($this->entries as $entry): ?>
+          <div class="col-md-4" id="todo-<?php print $entry->id; ?>">
+            <div class="card mb-4 shadow-sm">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+              <div class="card-body">
+                <p class="card-text truncate"><?php echo $this->escape($entry->title) ?></p>
+                <p class="card-text truncate"><?php echo $this->escape($entry->comment) ?></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a 
+                      href="<?php 
+                        //Example 1: echo $this->url( array( 'controller' => 'todo', 'action' => 'view', 'id' => $entry->id ), null, true );
+                        echo $this->url( array('id' => $entry->id ), 'todo-view');
+                      ?>" 
+                    class="btn btn-sm btn-outline-success">View</a>
+                    <a href="<?php 
+                        //Example 1: echo $this->url( array( 'controller' => 'todo', 'action' => 'view', 'id' => $entry->id ), null, true );
+                        echo $this->url( array('id' => $entry->id ), 'todo-edit');
+                      ?>"  class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <button type="button" data-id="<?php print $entry->id ?>" data-href="<?php echo $this->url( array( 'controller' => 'todo', 'action' => 'destroy', 'id' => $entry->id ), null, true ) ?>"  class="btn btn-sm btn-outline-danger btn-delete">Delete</button>
+                  </div>
+                  <small class="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        <?php endforeach ?>
+        
+      </div>
+    </div>
+  </div>
